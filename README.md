@@ -56,7 +56,9 @@ Open `http://127.0.0.1:8779`. Serve `dist/` as the website root. There is no dep
 
 **Public GitHub Pages:** https://auraofintelligence.github.io/RCC-RJC-Job-Ad-Formula/
 
-GitHub Pages can keep publishing `main` / root. The generated root `index.html` loads the application assets from `dist/`; `.nojekyll` keeps the static files intact. Run `npm run prepare-pages` after changes to `dist/index.html` or `LICENCE.md`, then `npm run check`. This keeps the root entry, rendered licence, robots policy and sitemap current. `dist/index.html` remains the canonical page source; do not edit the generated root entry by hand.
+GitHub Pages can keep publishing `main` / root. The generated root pages load application assets from `dist/`; `.nojekyll` keeps the static files intact. Run `npm run prepare-pages` after changes to `dist/index.html`, the guide templates, research documents or `LICENCE.md`, then `npm run check`. This keeps all eight pages, rendered documents, navigation, robots policy and sitemap current. `dist/index.html` remains the canonical builder source; `scripts/site-pages.mjs` defines the guide pages. Do not edit generated root pages or rendered articles by hand.
+
+The website has separate pages for [How it works](https://auraofintelligence.github.io/RCC-RJC-Job-Ad-Formula/how-it-works.html), [Guides](https://auraofintelligence.github.io/RCC-RJC-Job-Ad-Formula/guides.html), SEEK guidance, LinkedIn/social fields, employer checks, the comparison template and the licence. Navigation and footer links open readable HTML pages. The Markdown source documents stay in the repository, while the employer's AI brief remains a Markdown download with an always-visible content viewer.
 
 ## Licence and favicon
 

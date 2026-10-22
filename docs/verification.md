@@ -25,3 +25,12 @@ The screenshot in `output/builder-preview.png` contains fictional example detail
 - The generated root entry was checked with the repository served from its root, matching GitHub Pages' current `main` / root source. It loads the builder and its scripts from `dist/`; same-page anchors remain at the project root.
 - `prepare-pages.mjs --check` verifies the root entry, static licence copy, crawler policy, sitemap and icon assets. The 22 existing generator tests still pass.
 - `robots.txt` follows the allow-all JRA example; the README records the host-root scope of robots rules on GitHub project sites.
+
+## Separate website pages, 23 October 2026
+
+- The website now has eight pages: builder, How it works, Guides, SEEK guidance, LinkedIn/social fields, Facebook/employer checks, comparison template and licence. Main navigation and footer document links open HTML pages; no user-facing Markdown source links remain.
+- Research is rendered from its existing Markdown sources, retaining all table rows, source URLs, evidence markers, the 22 October research date and verification boundaries. The comparison remains an unfilled template, not a report of completed trials.
+- All 34 tests pass, including document rendering and page/navigation checks. The publishing check verifies local targets, anchors, generated pages, sitemap and assets.
+- Browser checks covered all eight pages at desktop and 390 × 844. Computed text sizes were at least 16 pixels, with no page-level horizontal overflow. Research table cells become labelled rows on mobile.
+- Clicked the main How it works link and a footer comparison link to confirm separate-page navigation. The builder draft survived a round trip and the Markdown viewer reflected the restored answers. No hidden form sections were introduced.
+- Both the repository-root GitHub Pages layout and the dist-root Sites layout loaded the builder, guides, styles and navigation without browser console errors.
