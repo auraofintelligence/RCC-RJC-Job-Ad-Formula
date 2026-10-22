@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Make one short vacancy brief. Get AI-written sections to copy into SEEK, LinkedIn and social posts.">
+  <meta name="theme-color" content="#173d35">
+  <title>Job Ad Formula · A better brief, a better ad</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23173d35'/%3E%3Cpath d='M18 34h28M32 20v28' stroke='%23dbedaa' stroke-width='7'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#builder">Skip to builder</a>
+  <header class="topbar shell">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">+</span><span>Job Ad <strong>Formula</strong></span></a>
+    <span class="pilot">RCC / RJC <span>·</span> Independent prototype</span>
+    <a class="quiet-link" href="#how-it-works">How it works <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main class="shell">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">A better brief. A better ad.</p>
+        <h1 id="page-title">Less back-and-forth.<br><span>More possibility.</span></h1>
+        <p class="lede">A few facts about the job. One file for your AI.<br>Clear sections to copy into each platform’s form.</p>
+      </div>
+      <ol class="journey" id="how-it-works">
+        <li><span>01</span><div><strong>Describe the vacancy</strong><p>Tick what fits. Short answers are fine.</p></div></li>
+        <li><span>02</span><div><strong>Download your AI brief</strong><p>Attach the .md file to your chosen AI.</p></div></li>
+        <li><span>03</span><div><strong>Review, copy and paste</strong><p>The AI writes labelled fields. You post them.</p></div></li>
+      </ol>
+    </section>
+
+    <div class="workspace" id="builder">
+      <form id="vacancy-form" novalidate>
+        <div class="form-toolbar"><span id="save-status">Your answers stay in this browser.</span><div><button class="text-button" type="button" id="example">Try an example</button><button class="text-button muted" type="button" id="clear-draft">Clear</button></div></div>
+
+        <section class="form-card" aria-labelledby="vacancy-heading">
+          <div class="section-heading"><span class="step">01</span><div><h2 id="vacancy-heading">The vacancy</h2><p>The details a candidate needs to know.</p></div></div>
+          <div class="fields two">
+            <label>Job title<input name="title" autocomplete="off" placeholder="e.g. Café all-rounder"></label>
+            <label>Business name <span class="optional" id="business-optional">optional</span><input name="business" autocomplete="organization" placeholder="The name you want shown"></label>
+            <label>Work location<input name="location" placeholder="Suburb / town, state"></label>
+            <label>Employment type<select name="employment"><option>To confirm</option><option>Full-time</option><option>Part-time</option><option>Casual</option><option>Fixed-term</option><option>Contract</option><option>Other</option></select></label>
+          </div>
+          <fieldset class="compact"><legend>Workplace</legend><div class="pills">
+            <label><input type="radio" name="workplace" value="On site" checked><span>On site</span></label>
+            <label><input type="radio" name="workplace" value="Hybrid"><span>Hybrid</span></label>
+            <label><input type="radio" name="workplace" value="Remote"><span>Remote</span></label>
+            <label><input type="radio" name="workplace" value="To confirm"><span>To confirm</span></label>
+          </div></fieldset>
+          <div class="fields two">
+            <label>Hours / roster<input name="hours" placeholder="e.g. 20–25 hours, weekday mornings"></label>
+            <label>Pay wording <span class="optional">if decided</span><input name="pay" placeholder="e.g. $34–$38 per hour + super"><span class="hint">Use your actual offer. Leave blank if still deciding.</span></label>
+          </div>
+          <label>What will they actually do?<textarea name="duties" rows="3" placeholder="Take customer orders&#10;Prepare food and drinks&#10;Keep the café clean"></textarea><span class="hint">A few short lines. The AI will do the writing.</span></label>
+          <details class="more"><summary>Already have an ad? Paste it here</summary><label>Existing advertisement<textarea name="existingAd" rows="5" placeholder="Paste the ad. The AI will reuse its facts and flag any conflicts with this form."></textarea></label></details>
+        </section>
+
+        <section class="form-card" aria-labelledby="people-heading">
+          <div class="section-heading"><span class="step">02</span><div><h2 id="people-heading">The right fit, both ways</h2><p>What matters for the work. What makes it worth doing.</p></div></div>
+          <label>Must-haves <span class="optional">if any</span><textarea name="essential" rows="2" placeholder="Actual skills, availability, licences or qualifications"></textarea></label>
+          <fieldset class="compact"><legend>What can you genuinely offer?</legend><p class="hint">Tick only what you can provide.</p><div class="benefit-grid">
+            <label class="check"><input type="checkbox" name="benefits" value="Training provided"><span>Training provided</span></label>
+            <label class="check"><input type="checkbox" name="benefits" value="Flexible working arrangements"><span>Flexible arrangements</span></label>
+            <label class="check"><input type="checkbox" name="benefits" value="Mentoring available"><span>Mentoring</span></label>
+            <label class="check"><input type="checkbox" name="benefits" value="Staff discounts"><span>Staff discounts</span></label>
+            <label class="check"><input type="checkbox" name="benefits" value="Equipment provided"><span>Equipment provided</span></label>
+            <label class="check"><input type="checkbox" name="benefits" value="Transferable skills welcome"><span>Transferable skills welcome</span></label>
+          </div></fieldset>
+          <label>Anything else worth knowing? <span class="optional">optional</span><input name="otherBenefits" placeholder="Specific benefits, support or a reason to join"></label>
+          <details class="more"><summary>Add nice-to-haves or other details</summary><div class="fields">
+            <label>Desirable / trainable skills<textarea name="desirable" rows="2" placeholder="Useful but not essential"></textarea></label>
+            <label>Working days / shifts<input name="schedule" placeholder="If not already covered above"></label>
+            <label>Other employer notes<textarea name="extraNotes" rows="2" placeholder="Relevant facts or conditions to include"></textarea></label>
+          </div></details>
+        </section>
+
+        <section class="form-card" aria-labelledby="output-heading">
+          <div class="section-heading"><span class="step">03</span><div><h2 id="output-heading">Make it yours</h2><p>Choose the destinations and the voice.</p></div></div>
+          <fieldset class="compact"><legend>Where will you post?</legend><div class="channel-grid">
+            <label class="channel"><input type="checkbox" name="channels" value="seek" checked><span><strong>SEEK</strong><small>Fields for its job-ad form</small></span></label>
+            <label class="channel"><input type="checkbox" name="channels" value="linkedin" checked><span><strong>LinkedIn</strong><small>Job listing or feed post</small></span></label>
+            <label class="channel"><input type="checkbox" name="channels" value="facebook" checked><span><strong>Facebook</strong><small>Page / community group post</small></span></label>
+            <label class="channel"><input type="checkbox" name="channels" value="short" checked><span><strong>Short notice</strong><small>Caption, poster or noticeboard</small></span></label>
+          </div></fieldset>
+          <label id="linkedin-format">LinkedIn format<select name="linkedinFormat"><option value="listing">Job listing — labelled form fields</option><option value="post">Feed post — one post text block</option></select></label>
+          <div class="application-box" id="social-application"><h3>How should social-post readers apply?</h3><p class="hint">Use a public job link or an approved application email. SEEK uses its own Apply button.</p><div class="fields application-fields">
+            <label>Method<select name="applyMethod"><option value="link">Application link</option><option value="email">Email</option></select></label>
+            <label>Destination<input name="applyDestination" placeholder="https://…" autocomplete="off"></label>
+          </div></div>
+          <details class="more"><summary>Application items and closing date</summary><fieldset class="compact"><legend>Ask applicants for</legend><div class="pills checks">
+            <label><input type="checkbox" name="applicationItems" value="CV"><span>CV</span></label>
+            <label><input type="checkbox" name="applicationItems" value="A short introduction"><span>Short introduction</span></label>
+            <label><input type="checkbox" name="applicationItems" value="Availability"><span>Availability</span></label>
+            <label><input type="checkbox" name="applicationItems" value="Portfolio"><span>Portfolio</span></label>
+          </div></fieldset><label>Closing date <span class="optional">optional</span><input name="closingDate" type="date"></label></details>
+
+          <fieldset class="compact voice"><legend>The voice</legend><div class="voice-options">
+            <label><input type="radio" name="style" value="jra" checked><span><strong>Joyful, responsible abundance</strong><small>Warmth. Clear agreements. Real opportunity.</small></span></label>
+            <label><input type="radio" name="style" value="warm"><span><strong>Warm & welcoming</strong><small>Friendly, specific and natural.</small></span></label>
+            <label><input type="radio" name="style" value="direct"><span><strong>Plain & direct</strong><small>Get to the useful details.</small></span></label>
+          </div><p class="hint">Every style stays factual, inclusive and in Australian English. The style name won’t appear in the ad.</p></fieldset>
+
+          <fieldset class="compact"><legend>Have you checked pay and conditions?</legend><div class="pills">
+            <label><input type="radio" name="payStatus" value="checked"><span>Yes, I’ve checked</span></label>
+            <label><input type="radio" name="payStatus" value="not-checked"><span>Not yet</span></label>
+            <label><input type="radio" name="payStatus" value="unsure" checked><span>I’m unsure</span></label>
+          </div><p class="hint">You can draft now. Check the applicable award/agreement, classification, pay and conditions before posting. <a href="https://calculate.fairwork.gov.au/" target="_blank" rel="noopener">Fair Work tools ↗</a></p></fieldset>
+
+          <details class="more" id="platform-details"><summary>Platform fields & employment details <span class="optional">optional</span></summary>
+            <p class="hint">Fill only what you know. The AI will mark undecided fields for your review.</p>
+            <div class="fields two">
+              <label>SEEK category<input name="seekCategory" placeholder="Select the matching category in SEEK"></label>
+              <label>SEEK subcategory<input name="seekSubcategory" placeholder="If known"></label>
+              <label>Pay type<select name="payType"><option value="">To confirm</option><option>Hourly rate</option><option>Monthly salary</option><option>Annual salary</option><option>Annual plus commission</option></select></label>
+              <label>Currency<select name="currency"><option>AUD</option><option>NZD</option><option>USD</option><option value="">To confirm</option></select></label>
+              <label>Pay range — minimum<input name="payMin" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Actual amount"></label>
+              <label>Pay range — maximum<input name="payMax" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Actual amount"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="showPay" checked><span>Show supplied pay in public copy</span></label>
+            <label>SEEK ad features<select name="seekProduct"><option value="unspecified">Not sure — optional selling points only</option><option value="selling-points">My ad supports three selling points</option></select></label>
+            <label>LinkedIn listing application route<select name="linkedinApply"><option value="platform">Collect applications through LinkedIn</option><option value="external">Use an external application website</option></select></label>
+            <label id="linkedin-external">LinkedIn application website<input name="linkedinApplyUrl" placeholder="https://…"></label>
+            <div class="fields two">
+              <label>Award / agreement<input name="award" placeholder="If checked; include award-free if applicable"></label>
+              <label>Employment classification<input name="classification" placeholder="If applicable — separate from SEEK’s category"></label>
+            </div>
+          </details>
+        </section>
+      </form>
+
+      <aside class="brief-panel" id="your-brief" aria-label="Your brief">
+        <div class="brief-inner">
+          <div class="panel-kicker"><span class="live-dot"></span> YOUR AI BRIEF <span id="channel-count">4 outputs</span></div>
+          <h2 id="preview-title">Your next great hire<br>starts with the facts.</h2>
+          <p class="preview-sub" id="preview-meta">Add your vacancy details on the left.</p>
+          <div class="preview-divider"></div>
+          <p class="panel-label">THE AI WILL RETURN</p>
+          <div id="output-fields" class="output-fields"></div>
+          <div class="style-note"><span aria-hidden="true">✳</span><div><strong id="preview-style">Joyful, responsible abundance</strong><p id="preview-style-detail">A warm invitation. Honest promises. Opportunity to contribute.</p></div></div>
+          <div class="readiness"><strong id="readiness-title">You can start with what you know</strong><p id="readiness-detail">Missing details will be clearly marked in the draft.</p><ul id="missing-list"></ul></div>
+          <button class="primary-button" id="download" type="button">Download AI brief <span>.md ↓</span></button>
+          <button class="secondary-button" id="copy" type="button">Copy brief for AI</button>
+          <p class="handoff">Attach the file to your AI and say:<br><strong>“Use this brief to write the selected fields.”</strong></p>
+          <details class="markdown-details"><summary>Look inside the Markdown</summary><pre id="markdown-preview" tabindex="0"></pre></details>
+          <p id="action-status" class="action-status" role="status" aria-live="polite"></p>
+        </div>
+      </aside>
+    </div>
+
+    <section class="research-note" aria-labelledby="research-title"><div><p class="eyebrow">Built around the actual fields</p><h2 id="research-title">One set of facts.<br>The right sections for each place.</h2></div><div><p>SEEK and LinkedIn listings use labelled fields and manual selection notes. Facebook and LinkedIn feed posts use a text composer. A short notice is its own writing format.</p><p>Field guidance checked against official documentation on <strong>22 October 2026</strong>. Some fields vary by account or ad product. Signed-in posting screens have not been inspected; the current platform form is the final check.</p><div class="research-links"><a href="https://github.com/auraofintelligence/RCC-RJC-Job-Ad-Formula/blob/main/docs/channel-best-practices.md" target="_blank" rel="noopener">SEEK field research ↗</a><a href="https://github.com/auraofintelligence/RCC-RJC-Job-Ad-Formula/blob/main/docs/platform-field-map.md" target="_blank" rel="noopener">LinkedIn & social fields ↗</a></div></div></section>
+  </main>
+  <footer class="shell footer"><p>Job Ad Formula <span>·</span> Simpler. Faster. Better results.</p><p>A prototype for review. Your AI drafts; you review and publish.</p><a href="https://github.com/auraofintelligence/RCC-RJC-Job-Ad-Formula" target="_blank" rel="noopener">Source & research ↗</a></footer>
+  <noscript><p class="noscript">Please enable JavaScript to build and download your brief. The source and research remain available in the repository.</p></noscript>
+</body>
+</html>
