@@ -45,11 +45,34 @@ Node.js 20 or newer:
 
 ```sh
 npm test
+npm run prepare-pages
 npm run check
 npm run preview
 ```
 
-Open `http://127.0.0.1:8779`. Serve `dist/` as the website root. There is no install/build step and no application backend. It can be hosted as static files, including on GitHub Pages. The `.openai/hosting.json` manifest identifies the separate owner-private Sites preview.
+Open `http://127.0.0.1:8779`. Serve `dist/` as the website root. There is no dependency installation or application backend. The `.openai/hosting.json` manifest identifies the separate owner-private Sites preview.
+
+**Public GitHub Pages:** https://auraofintelligence.github.io/RCC-RJC-Job-Ad-Formula/
+
+GitHub Pages can keep publishing `main` / root. The generated root `index.html` loads the application assets from `dist/`; `.nojekyll` keeps the static files intact. Run `npm run prepare-pages` after changes to `dist/index.html` or `LICENCE.md`, then `npm run check`. This keeps the root entry, rendered licence, robots policy and sitemap current. `dist/index.html` remains the canonical page source; do not edit the generated root entry by hand.
+
+## Licence and favicon
+
+[Strange But True Public Source Licence](LICENCE.md), matching Luke's other projects. Public source; commercial, corporate and employer use requires Luke Nathan Hayes' written permission. User-created outputs belong to their creators under the licence. Third-party material retains its own terms.
+
+The website links the complete licence. Its allow-all `robots.txt` follows the JRA Product Engine example and points to this project's public sitemap. It is a crawler preference, not access control; the private Sites preview retains its authentication gate. On GitHub Pages, a project-directory robots file does not replace the host-root `/robots.txt` policy.
+
+The original AI-generated document-and-spark favicon and PNG/ICO sizes are in `dist/assets/`. See [the exact prompts and generation record](docs/IMAGE-PROMPTS.md).
+
+## Suggested repository topics
+
+Following the existing projects' functional tags, project identifier, owner/project identifier and build-date convention:
+
+```text
+ai-tools agent-workflows markdown markdown-builder browser-tool human-in-the-loop recruitment job-advertising small-business redlands-coast joyful-responsible-abundance strange-but-true public-source github-pages built-2026-10-22 rcc-rjc-job-ad-formula auraofintelligence-rcc-rjc-job-ad-formula
+```
+
+These are suggested topics for manual entry, not an automatic change to the repository's GitHub metadata.
 
 ## Data
 

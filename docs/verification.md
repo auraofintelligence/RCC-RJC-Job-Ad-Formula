@@ -10,3 +10,11 @@
 - Research uses official public help and, for some SEEK fields, partner UX/schema documentation. Signed-in Australian posting forms were not inspected. Exact current required markers, account features and platform validation remain to be verified in the employer's account.
 
 The screenshot in `output/builder-preview.png` contains fictional example details only.
+
+## Licence, favicon and GitHub Pages follow-up
+
+- The Strange But True Public Source Licence was copied from `agent-md-form-navigator`, changing only the project identifier and original-project URL.
+- The rendered licence and all linked favicon assets load in a browser.
+- The generated root entry was checked with the repository served from its root, matching GitHub Pages' current `main` / root source. It loads the builder and its scripts from `dist/`; same-page anchors remain at the project root.
+- `prepare-pages.mjs --check` verifies the root entry, static licence copy, crawler policy, sitemap and icon assets. The 22 existing generator tests still pass.
+- `robots.txt` follows the allow-all JRA example; the README records the host-root scope of robots rules on GitHub project sites.
