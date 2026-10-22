@@ -1,4 +1,4 @@
-import {buildMarkdown, getReadiness, slugify, EXAMPLE} from './formula.mjs';
+import {buildMarkdown, getReadiness, slugify, EXAMPLE} from './formula.mjs?v=20261022-existing-ad';
 
 const form = document.querySelector('#vacancy-form');
 const byId = (id) => document.getElementById(id);
@@ -42,16 +42,13 @@ const outputMap = {
 function render({save = true} = {}) {
   const data = readForm();
   const readiness = getReadiness(data);
-  const hasSocial = data.channels.some((key) => key === 'facebook' || key === 'short' || (key === 'linkedin' && data.linkedinFormat === 'post'));
-  byId('linkedin-format').hidden = !data.channels.includes('linkedin');
+  const hasExistingAd = Boolean(data.existingAd.trim());
   byId('business-optional').textContent = data.channels.includes('linkedin') && data.linkedinFormat === 'listing' ? 'needed for a LinkedIn company Page' : 'optional';
-  byId('social-application').hidden = !hasSocial;
-  byId('linkedin-external').hidden = data.linkedinApply !== 'external';
   const destination = form.elements.namedItem('applyDestination');
   destination.placeholder = data.applyMethod === 'email' ? 'jobs@yourbusiness.com.au' : 'https://…';
   destination.inputMode = data.applyMethod === 'email' ? 'email' : 'url';
-  byId('preview-title').textContent = data.title.trim() || 'Your next great hire starts with the facts.';
-  byId('preview-meta').textContent = [data.location, data.employment === 'To confirm' ? '' : data.employment, data.hours].filter(Boolean).join(' · ') || 'Add your vacancy details on the left.';
+  byId('preview-title').textContent = data.title.trim() || (hasExistingAd ? 'Improve your existing job ad' : 'Your next great hire starts with the facts.');
+  byId('preview-meta').textContent = [data.location, data.employment === 'To confirm' ? '' : data.employment, data.hours].filter(Boolean).join(' · ') || (hasExistingAd ? 'Your AI will extract the details from the ad you pasted.' : 'Add your vacancy details on the left.');
   byId('channel-count').textContent = `${data.channels.length} ${data.channels.length === 1 ? 'output' : 'outputs'}`;
   byId('output-fields').replaceChildren();
   for (const key of ['seek', 'linkedin', 'facebook', 'short'].filter((key) => data.channels.includes(key))) {
@@ -71,12 +68,11 @@ function render({save = true} = {}) {
     direct: ['Plain & direct', 'Clear expectations. Short sentences. Useful specifics.'],
   };
   [byId('preview-style').textContent, byId('preview-style-detail').textContent] = styles[data.style] || styles.jra;
-  byId('readiness-title').textContent = readiness.ready ? 'Core details ready to draft' : 'You can start with what you know';
-  byId('readiness-detail').textContent = readiness.ready ? 'Review the AI’s output and verify pay and conditions before posting.' : 'The AI will mark these gaps clearly. You can still export:';
+  byId('readiness-title').textContent = hasExistingAd ? 'Existing ad ready to review' : readiness.ready ? 'Core details ready to draft' : 'You can start with what you know';
+  byId('readiness-detail').textContent = hasExistingAd ? 'Add only changes to the form. Your AI will reuse the ad’s facts and flag anything still missing before publication.' : readiness.ready ? 'Review the AI’s output and verify pay and conditions before posting.' : 'The AI will mark these gaps clearly. You can still export:';
   byId('missing-list').replaceChildren();
-  for (const field of readiness.missing) { const li = document.createElement('li'); li.textContent = field; byId('missing-list').append(li); }
+  for (const field of hasExistingAd ? [] : readiness.missing) { const li = document.createElement('li'); li.textContent = field; byId('missing-list').append(li); }
   currentMarkdown = buildMarkdown(data);
-  byId('markdown-preview').textContent = currentMarkdown;
   if (save) {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); storageAvailable = true; }
     catch { storageAvailable = false; }
@@ -110,11 +106,8 @@ byId('copy').addEventListener('click', async () => {
     await navigator.clipboard.writeText(currentMarkdown);
     byId('action-status').textContent = 'Brief copied. Paste it into your chosen AI.';
   } catch {
-    byId('action-status').textContent = 'Clipboard access is unavailable. Download the .md file, or select and copy the Markdown below.';
-    document.querySelector('.markdown-details').open = true;
-    const range = document.createRange(); range.selectNodeContents(byId('markdown-preview'));
-    const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range);
-    byId('markdown-preview').focus();
+    byId('action-status').textContent = 'Copying is unavailable in this browser. Use “Download AI brief” and attach the file to your AI.';
+    byId('download').focus();
   }
 });
 byId('example').addEventListener('click', () => {

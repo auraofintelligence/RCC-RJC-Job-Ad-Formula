@@ -14,7 +14,7 @@ The AI returns separately labelled, copyable text fields and a separate checklis
 2. **The right fit, both ways:** genuine must-haves, benefit checkboxes and a short space for other useful facts. Desirable/trainable skills and extra conditions stay in an optional section.
 3. **Destinations and voice:** channel checkboxes, LinkedIn listing versus feed post, application route where needed, optional application items/closing date, style and a simple pay/conditions check status.
 
-Keep detailed platform settings in a collapsed optional section: SEEK category/subcategory, numerical pay range/type/currency, public pay visibility, selling-point support, LinkedIn application configuration and employment award/classification where known. Clearly distinguish SEEK's occupational category from an employment award classification.
+Keep all questions visible in clearly labelled sections. Mark detailed platform settings optional: SEEK category/subcategory, numerical pay range/type/currency, public pay visibility, selling-point support, LinkedIn application configuration and employment award/classification where known. Clearly distinguish SEEK's occupational category from an employment award classification. The existing-ad paste box is the first input; employers can add only changes rather than retype an existing advertisement. Text is at least 16 pixels at every screen size.
 
 People can export with incomplete facts. Show what remains undecided and instruct the AI to preserve the gaps. When hours or a required application destination is absent, the corresponding output remains **DRAFT — NOT READY TO PUBLISH**. For a SEEK-only ad, the platform Apply button is its destination; do not demand an unrelated external link.
 

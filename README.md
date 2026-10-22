@@ -6,7 +6,7 @@ A short vacancy form that exports a portable Markdown brief. Employers attach it
 
 ## Employer flow
 
-1. Tick the destinations and supply short vacancy facts. Optional details stay expandable.
+1. Paste an existing advertisement or supply short vacancy facts, then tick the destinations. All form questions are visible; optional sections are labelled so employers can skip them.
 2. Download the `.md` brief, or copy its text.
 3. Give it to an AI and ask: “Use this brief to write the selected fields.”
 4. Review the AI's response, paste each field into the correct platform form, make the platform selections and publish manually.
@@ -26,6 +26,8 @@ Research checked **22 October 2026** using official public documentation. The si
 ## Style and accuracy
 
 The default **Joyful, responsible abundance** style applies warm human language, clear agreements and genuine opportunity to contribute and grow. It does not insert that slogan into advertisements, invent training/benefits or promise hiring outcomes. Warm and direct alternatives are available.
+
+Every voice uses Australian English exclusively, professional formatting and no em dashes in generated ad copy. Each field has a clear label, with setup notes separated from public copy. The form uses a minimum text size of 16 pixels across desktop and mobile. Existing job advertisements can be pasted into the visible starting area; employers need only add changes or missing details.
 
 Facts remain employer-supplied. Missing information stays visible; employment checks remain the employer's responsibility. The prompt asks for drafts immediately rather than another lengthy interview. It distinguishes SEEK's job category from an employment-award classification.
 

@@ -1,15 +1,22 @@
 # Prototype verification — 22 October 2026
 
-- **22 generator tests pass.** These cover selected channels, actual copy fields versus setup notes, missing/invalid destinations, numeric pay checks, hidden salary, separate private application settings, source-ad reuse, style and formatting.
+- **24 generator tests pass.** These cover selected channels, actual copy fields versus setup notes, missing/invalid destinations, numeric pay checks, hidden salary, separate private application settings, source-ad reuse, style and formatting.
 - Application and preview-server JavaScript syntax checks pass.
 - Browser checked at the default desktop viewport and at **390 × 844**. No horizontal overflow was observed on the mobile layout.
 - The fictional example loads, updates the preview and survives reload through local browser storage.
-- A malformed application email is visibly flagged. SEEK-only selection hides the social destination and excludes its value from the exported brief.
+- A malformed application email is visibly flagged. SEEK-only selection excludes the social destination from the exported brief; all form questions remain visible.
 - The browser's copy handler reports success and the download handler generates a named `.md` Blob download. The browser automation download-event monitor did not return a saved-file path; the generated contents are separately exercised by the automated tests and preserved in `examples/cafe-ai-brief.md`.
 - No external AI assistant was run, and no job was submitted. Improved writing/recruitment outcomes remain untested.
 - Research uses official public help and, for some SEEK fields, partner UX/schema documentation. Signed-in Australian posting forms were not inspected. Exact current required markers, account features and platform validation remain to be verified in the employer's account.
 
 The screenshot in `output/builder-preview.png` contains fictional example details only.
+
+## Readability and the visible employer path
+
+- Browser-computed text sizes were audited at desktop, 1000 × 900 and 390 × 844. The minimum was 16 pixels at all three sizes, with no text below that size and no horizontal overflow.
+- There are no accordion elements and no hidden text inputs, textareas or selects. All optional questions remain visible.
+- The existing-ad paste box is the first input. Pasting an ad updates the preview to “Existing ad ready to review”; source facts are extracted before missing information is assessed.
+- Generated briefs require Australian English exclusively, no em dashes in generated copy and professional formatting for every voice. Pasted source material is preserved unchanged.
 
 ## Licence, favicon and GitHub Pages follow-up
 

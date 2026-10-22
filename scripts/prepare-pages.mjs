@@ -17,8 +17,8 @@ const paragraphs = licence.trim().split(/\r?\n\s*\r?\n/).map((block) => {
 }).join('\n');
 const licencePage = `<!doctype html>
 <html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Public Source Licence · Job Ad Formula</title><link rel="icon" type="image/x-icon" href="assets/favicon.ico"><link rel="stylesheet" href="styles.css">
-<style>.licence{max-width:850px;padding-block:45px 70px}.licence h1{font:750 clamp(29px,5vw,43px)/1.15 Manrope,system-ui,sans-serif;letter-spacing:-1.3px;margin:24px 0}.licence h2{font:700 21px Manrope,system-ui,sans-serif;margin:32px 0 14px}.licence p,.licence li{font-size:14px;line-height:1.8;overflow-wrap:anywhere}.licence ul{padding-left:22px}.licence li{margin:8px 0}.licence .back{font-size:13px}.licence .licence-download{font-size:12px;color:var(--muted);border-top:1px solid var(--line);margin-top:35px;padding-top:20px}</style></head>
+<title>Public Source Licence · Job Ad Formula</title><link rel="icon" type="image/x-icon" href="assets/favicon.ico"><link rel="stylesheet" href="styles.css?v=20261022-readable">
+<style>.licence{max-width:850px;padding-block:45px 70px}.licence h1{font:750 clamp(29px,5vw,43px)/1.15 Manrope,system-ui,sans-serif;letter-spacing:-1.3px;margin:24px 0}.licence h2{font:700 21px Manrope,system-ui,sans-serif;margin:32px 0 14px}.licence p,.licence li{font-size:16px;line-height:1.8;overflow-wrap:anywhere}.licence ul{padding-left:22px}.licence li{margin:8px 0}.licence .back{font-size:16px}.licence .licence-download{font-size:16px;color:var(--muted);border-top:1px solid var(--line);margin-top:35px;padding-top:20px}</style></head>
 <body><main class="shell licence"><a class="back" href="./">← Back to Job Ad Formula</a>${paragraphs}<p class="licence-download"><a href="LICENCE.md">Download the licence as Markdown</a> · <a href="https://github.com/auraofintelligence/RCC-RJC-Job-Ad-Formula">Original repository</a></p></main></body></html>\n`;
 
 // GitHub Pages currently publishes main's root. Keep a real application entry

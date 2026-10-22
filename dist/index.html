@@ -11,8 +11,8 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="canonical" href="https://auraofintelligence.github.io/RCC-RJC-Job-Ad-Formula/">
-  <link rel="stylesheet" href="styles.css">
-  <script type="module" src="app.mjs"></script>
+  <link rel="stylesheet" href="styles.css?v=20261022-readable">
+  <script type="module" src="app.mjs?v=20261022-readable"></script>
 </head>
 <body>
   <a class="skip" href="#builder">Skip to builder</a>
@@ -30,7 +30,7 @@
         <p class="lede">A few facts about the job. One file for your AI.<br>Clear sections to copy into each platform’s form.</p>
       </div>
       <ol class="journey" id="how-it-works">
-        <li><span>01</span><div><strong>Describe the vacancy</strong><p>Tick what fits. Short answers are fine.</p></div></li>
+        <li><span>01</span><div><strong>Paste an ad or describe the vacancy</strong><p>Reuse what you have. Short answers are fine.</p></div></li>
         <li><span>02</span><div><strong>Download your AI brief</strong><p>Attach the .md file to your chosen AI.</p></div></li>
         <li><span>03</span><div><strong>Review, copy and paste</strong><p>The AI writes labelled fields. You post them.</p></div></li>
       </ol>
@@ -41,7 +41,13 @@
         <div class="form-toolbar"><span id="save-status">Your answers stay in this browser.</span><div><button class="text-button" type="button" id="example">Try an example</button><button class="text-button muted" type="button" id="clear-draft">Clear</button></div></div>
 
         <section class="form-card" aria-labelledby="vacancy-heading">
-          <div class="section-heading"><span class="step">01</span><div><h2 id="vacancy-heading">The vacancy</h2><p>The details a candidate needs to know.</p></div></div>
+          <div class="section-heading"><span class="step">01</span><div><h2 id="vacancy-heading">Start with your job ad</h2><p>Paste an existing ad, or add the job details below. Leave anything you don’t know blank.</p></div></div>
+          <div class="existing-ad-start">
+            <label for="existing-ad">Have an existing job ad? Paste it here.</label>
+            <p id="existing-ad-help">Your AI will reuse its details. Add only changes or extra information in the fields below.</p>
+            <textarea id="existing-ad" name="existingAd" rows="5" aria-describedby="existing-ad-help" placeholder="Paste your current job ad here. No need to type it all again."></textarea>
+          </div>
+          <p class="new-vacancy-label">Starting fresh? Add the job details below.</p>
           <div class="fields two">
             <label>Job title<input name="title" autocomplete="off" placeholder="e.g. Café all-rounder"></label>
             <label>Business name <span class="optional" id="business-optional">optional</span><input name="business" autocomplete="organization" placeholder="The name you want shown"></label>
@@ -59,7 +65,6 @@
             <label>Pay wording <span class="optional">if decided</span><input name="pay" placeholder="e.g. $34–$38 per hour + super"><span class="hint">Use your actual offer. Leave blank if still deciding.</span></label>
           </div>
           <label>What will they actually do?<textarea name="duties" rows="3" placeholder="Take customer orders&#10;Prepare food and drinks&#10;Keep the café clean"></textarea><span class="hint">A few short lines. The AI will do the writing.</span></label>
-          <details class="more"><summary>Already have an ad? Paste it here</summary><label>Existing advertisement<textarea name="existingAd" rows="5" placeholder="Paste the ad. The AI will reuse its facts and flag any conflicts with this form."></textarea></label></details>
         </section>
 
         <section class="form-card" aria-labelledby="people-heading">
@@ -74,11 +79,11 @@
             <label class="check"><input type="checkbox" name="benefits" value="Transferable skills welcome"><span>Transferable skills welcome</span></label>
           </div></fieldset>
           <label>Anything else worth knowing? <span class="optional">optional</span><input name="otherBenefits" placeholder="Specific benefits, support or a reason to join"></label>
-          <details class="more"><summary>Add nice-to-haves or other details</summary><div class="fields">
+          <section class="additional-fields" aria-labelledby="extra-details-heading"><h3 id="extra-details-heading">Other useful details <span class="optional">optional</span></h3><p class="hint">Skip anything already covered in your existing ad.</p><div class="fields">
             <label>Desirable / trainable skills<textarea name="desirable" rows="2" placeholder="Useful but not essential"></textarea></label>
             <label>Working days / shifts<input name="schedule" placeholder="If not already covered above"></label>
             <label>Other employer notes<textarea name="extraNotes" rows="2" placeholder="Relevant facts or conditions to include"></textarea></label>
-          </div></details>
+          </div></section>
         </section>
 
         <section class="form-card" aria-labelledby="output-heading">
@@ -89,23 +94,23 @@
             <label class="channel"><input type="checkbox" name="channels" value="facebook" checked><span><strong>Facebook</strong><small>Page / community group post</small></span></label>
             <label class="channel"><input type="checkbox" name="channels" value="short" checked><span><strong>Short notice</strong><small>Caption, poster or noticeboard</small></span></label>
           </div></fieldset>
-          <label id="linkedin-format">LinkedIn format<select name="linkedinFormat"><option value="listing">Job listing — labelled form fields</option><option value="post">Feed post — one post text block</option></select></label>
+          <label id="linkedin-format">LinkedIn format <span class="optional">if using LinkedIn</span><select name="linkedinFormat"><option value="listing">Job listing</option><option value="post">Feed post</option></select></label>
           <div class="application-box" id="social-application"><h3>How should social-post readers apply?</h3><p class="hint">Use a public job link or an approved application email. SEEK uses its own Apply button.</p><div class="fields application-fields">
             <label>Method<select name="applyMethod"><option value="link">Application link</option><option value="email">Email</option></select></label>
             <label>Destination<input name="applyDestination" placeholder="https://…" autocomplete="off"></label>
           </div></div>
-          <details class="more"><summary>Application items and closing date</summary><fieldset class="compact"><legend>Ask applicants for</legend><div class="pills checks">
+          <section class="additional-fields" aria-labelledby="application-items-heading"><h3 id="application-items-heading">What should people send? <span class="optional">optional</span></h3><fieldset class="compact"><legend>Tick what you need</legend><div class="pills checks">
             <label><input type="checkbox" name="applicationItems" value="CV"><span>CV</span></label>
             <label><input type="checkbox" name="applicationItems" value="A short introduction"><span>Short introduction</span></label>
             <label><input type="checkbox" name="applicationItems" value="Availability"><span>Availability</span></label>
             <label><input type="checkbox" name="applicationItems" value="Portfolio"><span>Portfolio</span></label>
-          </div></fieldset><label>Closing date <span class="optional">optional</span><input name="closingDate" type="date"></label></details>
+          </div></fieldset><label>Closing date <span class="optional">optional</span><input name="closingDate" type="date"></label></section>
 
           <fieldset class="compact voice"><legend>The voice</legend><div class="voice-options">
             <label><input type="radio" name="style" value="jra" checked><span><strong>Joyful, responsible abundance</strong><small>Warmth. Clear agreements. Real opportunity.</small></span></label>
             <label><input type="radio" name="style" value="warm"><span><strong>Warm & welcoming</strong><small>Friendly, specific and natural.</small></span></label>
             <label><input type="radio" name="style" value="direct"><span><strong>Plain & direct</strong><small>Get to the useful details.</small></span></label>
-          </div><p class="hint">Every style stays factual, inclusive and in Australian English. The style name won’t appear in the ad.</p></fieldset>
+          </div><p class="hint">Every style uses Australian English, professional formatting and no em dashes. Keep the wording factual and inclusive. The style name won’t appear in the ad.</p></fieldset>
 
           <fieldset class="compact"><legend>Have you checked pay and conditions?</legend><div class="pills">
             <label><input type="radio" name="payStatus" value="checked"><span>Yes, I’ve checked</span></label>
@@ -113,25 +118,28 @@
             <label><input type="radio" name="payStatus" value="unsure" checked><span>I’m unsure</span></label>
           </div><p class="hint">You can draft now. Check the applicable award/agreement, classification, pay and conditions before posting. <a href="https://calculate.fairwork.gov.au/" target="_blank" rel="noopener">Fair Work tools ↗</a></p></fieldset>
 
-          <details class="more" id="platform-details"><summary>Platform fields & employment details <span class="optional">optional</span></summary>
-            <p class="hint">Fill only what you know. The AI will mark undecided fields for your review.</p>
+          <section class="additional-fields" id="platform-details" aria-labelledby="platform-details-heading"><h3 id="platform-details-heading">Details for the posting forms <span class="optional">optional</span></h3>
+            <p class="hint">These help prepare the fields you’ll copy into the job board. Leave anything you haven’t decided blank.</p>
+            <h4>For SEEK</h4>
             <div class="fields two">
               <label>SEEK category<input name="seekCategory" placeholder="Select the matching category in SEEK"></label>
               <label>SEEK subcategory<input name="seekSubcategory" placeholder="If known"></label>
               <label>Pay type<select name="payType"><option value="">To confirm</option><option>Hourly rate</option><option>Monthly salary</option><option>Annual salary</option><option>Annual plus commission</option></select></label>
               <label>Currency<select name="currency"><option>AUD</option><option>NZD</option><option>USD</option><option value="">To confirm</option></select></label>
-              <label>Pay range — minimum<input name="payMin" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Actual amount"></label>
-              <label>Pay range — maximum<input name="payMax" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Actual amount"></label>
+              <label>Pay range: minimum<input name="payMin" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Actual amount"></label>
+              <label>Pay range: maximum<input name="payMax" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Actual amount"></label>
             </div>
             <label class="check"><input type="checkbox" name="showPay" checked><span>Show supplied pay in public copy</span></label>
-            <label>SEEK ad features<select name="seekProduct"><option value="unspecified">Not sure — optional selling points only</option><option value="selling-points">My ad supports three selling points</option></select></label>
+            <label>SEEK ad features<select name="seekProduct"><option value="unspecified">Not sure</option><option value="selling-points">Supports three selling points</option></select></label>
+            <h4>For a LinkedIn job listing</h4>
             <label>LinkedIn listing application route<select name="linkedinApply"><option value="platform">Collect applications through LinkedIn</option><option value="external">Use an external application website</option></select></label>
-            <label id="linkedin-external">LinkedIn application website<input name="linkedinApplyUrl" placeholder="https://…"></label>
+            <label id="linkedin-external">LinkedIn application website <span class="optional">only if using an external website</span><input name="linkedinApplyUrl" placeholder="https://…"></label>
+            <h4>Employment details, if known</h4>
             <div class="fields two">
               <label>Award / agreement<input name="award" placeholder="If checked; include award-free if applicable"></label>
-              <label>Employment classification<input name="classification" placeholder="If applicable — separate from SEEK’s category"></label>
+              <label>Employment classification<input name="classification" placeholder="If applicable; separate from SEEK’s category"></label>
             </div>
-          </details>
+          </section>
         </section>
       </form>
 
@@ -147,8 +155,7 @@
           <div class="readiness"><strong id="readiness-title">You can start with what you know</strong><p id="readiness-detail">Missing details will be clearly marked in the draft.</p><ul id="missing-list"></ul></div>
           <button class="primary-button" id="download" type="button">Download AI brief <span>.md ↓</span></button>
           <button class="secondary-button" id="copy" type="button">Copy brief for AI</button>
-          <p class="handoff">Attach the file to your AI and say:<br><strong>“Use this brief to write the selected fields.”</strong></p>
-          <details class="markdown-details"><summary>Look inside the Markdown</summary><pre id="markdown-preview" tabindex="0"></pre></details>
+          <div class="handoff"><strong>What to do with your file</strong><ol><li>Open your usual AI, such as ChatGPT, Claude, Gemini or Copilot.</li><li>Start a new chat and attach the file you downloaded.</li><li>Send: “Use this brief to write the selected fields.”</li></ol><p>If you can’t attach a file, use “Copy brief for AI” and paste it into the chat.</p></div>
           <p id="action-status" class="action-status" role="status" aria-live="polite"></p>
         </div>
       </aside>
