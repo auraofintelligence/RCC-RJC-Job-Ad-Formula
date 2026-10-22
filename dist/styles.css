@@ -39,6 +39,10 @@ input::placeholder,textarea::placeholder{color:#69776b}
 .handoff ol{padding-left:22px;margin:14px 0}
 .handoff li{padding-left:3px;margin-bottom:12px}
 .handoff p{margin:16px 0 0}
+.markdown-viewer{margin-top:28px;border-top:1px solid #ffffff24;padding-top:24px;min-width:0}
+.markdown-viewer h3{font-size:20px;line-height:1.4;margin:0 0 10px;font-weight:650}
+.markdown-viewer p{font-size:16px;line-height:1.65;color:#b5c7b9;margin:0 0 16px}
+.markdown-viewer pre{font:16px/1.65 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:420px;overflow:auto;min-width:0;background:#102f28;border:1px solid #ffffff30;border-radius:8px;padding:16px;margin:0;color:#d2dfc8;tab-size:2}
 .research-links{gap:14px 24px}
 .footer{flex-wrap:wrap;align-items:flex-start;gap:16px 28px;line-height:1.65}
 .footer p{max-width:46ch}

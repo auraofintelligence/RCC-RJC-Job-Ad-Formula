@@ -73,6 +73,7 @@ function render({save = true} = {}) {
   byId('missing-list').replaceChildren();
   for (const field of hasExistingAd ? [] : readiness.missing) { const li = document.createElement('li'); li.textContent = field; byId('missing-list').append(li); }
   currentMarkdown = buildMarkdown(data);
+  byId('markdown-preview').textContent = currentMarkdown;
   if (save) {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); storageAvailable = true; }
     catch { storageAvailable = false; }

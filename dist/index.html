@@ -11,8 +11,8 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="canonical" href="https://auraofintelligence.github.io/RCC-RJC-Job-Ad-Formula/">
-  <link rel="stylesheet" href="styles.css?v=20261022-readable">
-  <script type="module" src="app.mjs?v=20261022-readable"></script>
+  <link rel="stylesheet" href="styles.css?v=20261022-viewer">
+  <script type="module" src="app.mjs?v=20261022-viewer"></script>
 </head>
 <body>
   <a class="skip" href="#builder">Skip to builder</a>
@@ -155,6 +155,11 @@
           <div class="readiness"><strong id="readiness-title">You can start with what you know</strong><p id="readiness-detail">Missing details will be clearly marked in the draft.</p><ul id="missing-list"></ul></div>
           <button class="primary-button" id="download" type="button">Download AI brief <span>.md ↓</span></button>
           <button class="secondary-button" id="copy" type="button">Copy brief for AI</button>
+          <section class="markdown-viewer" aria-labelledby="markdown-heading">
+            <h3 id="markdown-heading">Markdown content</h3>
+            <p id="markdown-description">This is the exact brief you copy or download. It updates as you fill in the form.</p>
+            <pre id="markdown-preview" tabindex="0" aria-labelledby="markdown-heading" aria-describedby="markdown-description"></pre>
+          </section>
           <div class="handoff"><strong>What to do with your file</strong><ol><li>Open your usual AI, such as ChatGPT, Claude, Gemini or Copilot.</li><li>Start a new chat and attach the file you downloaded.</li><li>Send: “Use this brief to write the selected fields.”</li></ol><p>If you can’t attach a file, use “Copy brief for AI” and paste it into the chat.</p></div>
           <p id="action-status" class="action-status" role="status" aria-live="polite"></p>
         </div>
