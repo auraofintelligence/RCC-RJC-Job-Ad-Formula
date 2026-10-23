@@ -1,7 +1,7 @@
 import {renderDocument} from './render-document.mjs';
 
 export const PUBLIC_URL = 'https://auraofintelligence.github.io/RCC-RJC-Job-Ad-Formula/';
-export const STYLE_VERSION = '20261023-pages';
+export const STYLE_VERSION = '20261023-to-top';
 const escape = (value) => String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 
 export const documents = [
@@ -37,6 +37,7 @@ function page({file,title,description,kicker,body,active='',article=false}) {
   <title>${escape(title)} · Job Ad Formula</title>
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="canonical" href="${PUBLIC_URL}${file}"><link rel="stylesheet" href="styles.css?v=${STYLE_VERSION}">
+  <script type="module" src="to-top.mjs?v=20261023-to-top"></script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>

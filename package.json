@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "check": "node --check dist/app.mjs && node --check dist/formula.mjs && node --check dist/examples.mjs && node scripts/prepare-pages.mjs --check",
+    "check": "node --check dist/app.mjs && node --check dist/formula.mjs && node --check dist/examples.mjs && node --check dist/to-top.mjs && node scripts/prepare-pages.mjs --check",
     "prepare-pages": "node scripts/prepare-pages.mjs",
     "preview": "node scripts/preview.mjs"
   }

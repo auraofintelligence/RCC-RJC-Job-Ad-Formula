@@ -12,7 +12,8 @@ pages.set('index.html',await read('dist/index.html'));
 // GitHub Pages publishes the repository root, while Sites serves dist directly.
 // Only asset paths change; page links work at either root without a <base> tag.
 const githubPage = (html) => html.replaceAll('href="assets/','href="dist/assets/')
-  .replaceAll('href="styles.css','href="dist/styles.css').replaceAll('src="app.mjs','src="dist/app.mjs');
+  .replaceAll('href="styles.css','href="dist/styles.css').replaceAll('src="app.mjs','src="dist/app.mjs')
+  .replaceAll('src="to-top.mjs','src="dist/to-top.mjs');
 const robots = `User-agent: *\nAllow: /\nSitemap: ${PUBLIC_URL}sitemap.xml\n`;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...pages.keys()].map(file=>`  <url><loc>${PUBLIC_URL}${file==='index.html'?'':file}</loc></url>`).join('\n')}\n</urlset>\n`;
 const outputs = new Map([

@@ -8,6 +8,9 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
 .example-picker{margin-bottom:20px;padding:20px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);min-width:0}
+.to-top{position:fixed;z-index:20;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));min-height:48px;padding:10px 18px;border:1px solid var(--green);border-radius:999px;background:var(--ink);color:#edf3e6;font-size:16px;font-weight:700;box-shadow:0 4px 18px #173d3530}
+.to-top:hover{background:#24564b}
+.to-top-left{right:auto;left:max(16px,env(safe-area-inset-left))}
 .example-picker select{width:100%;max-width:100%;min-width:0}
 .example-picker .hint{margin-bottom:0}
 .form-reset{padding:0 0 20px}
