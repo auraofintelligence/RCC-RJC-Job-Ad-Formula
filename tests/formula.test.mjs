@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { buildMarkdown, getReadiness, slugify, EXAMPLE } from '../dist/formula.mjs';
 
-const sample = (changes = {}) => ({ ...EXAMPLE, ...changes });
+// Most tests exercise a new brief; source-ad behaviour has its own cases below.
+const sample = (changes = {}) => ({ ...EXAMPLE, existingAd: '', linkedinFormat: 'listing', linkedinApply: 'platform', style: 'jra', ...changes });
 
 test('readiness separates missing drafting facts from employer pay checks', () => {
   const result = getReadiness(sample());
@@ -269,11 +270,14 @@ test('portable filename slugging handles accents and empty input', () => {
   assert.equal(slugify(undefined), 'job-ad');
 });
 
-test('sample is fictional and does not assert a verified wage', () => {
+test('sample terms are illustrative and do not assert a verified wage', () => {
   assert.match(EXAMPLE.business, /fictional/i);
-  assert.match(EXAMPLE.applyDestination, /\.example$/);
+  assert.match(EXAMPLE.applyDestination, /@example\.org$/);
   assert.equal(EXAMPLE.payStatus, 'not-checked');
-  assert.equal(EXAMPLE.pay, '');
+  assert.match(EXAMPLE.pay, /Illustrative/);
+  assert.match(EXAMPLE.award, /unverified/);
+  assert.match(EXAMPLE.classification, /unverified/);
+  assert.match(EXAMPLE.extraNotes, /not employer commitments/);
 });
 
 test('official references include corrected Fair Work URL and no obsolete path', () => {

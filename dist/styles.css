@@ -7,6 +7,12 @@
 @media(max-width:420px){.shell{width:calc(100% - 28px)}.intro h1{font-size:35px}.fields.two{grid-template-columns:1fr}.benefit-grid{grid-template-columns:1fr}.channel{padding:11px 9px;gap:7px}.channel small{font-size:16px}.application-fields{grid-template-columns:1fr}.form-toolbar{align-items:flex-start}.form-toolbar>span{max-width:160px}.quiet-link{font-size:16px}.pills label{font-size:16px}.pills label>span{padding:8px 10px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
+.example-picker{margin-bottom:20px;padding:20px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);min-width:0}
+.example-picker select{width:100%;max-width:100%;min-width:0}
+.example-picker .hint{margin-bottom:0}
+.form-reset{padding:0 0 20px}
+.form-reset .secondary-button{width:100%;min-height:48px;color:var(--ink);background:var(--white);border-color:var(--line)}
+.form-reset .secondary-button:hover{background:#f0f3e8}
 /* Readability floor: all text is at least the 16px introductory paragraph. */
 .topbar{height:auto;min-height:100px;flex-wrap:wrap;padding-block:20px;gap:16px 28px}
 .workspace>*,.fields>*,.section-heading>div,.brief-inner,.channel>span,.voice-options label>span{min-width:0}

@@ -196,41 +196,5 @@ export function buildMarkdown(input = {}) {
   return sections.join('\n\n') + '\n';
 }
 
-/** Fictional vacancy for trying the form. Pay checks intentionally outstanding. */
-export const EXAMPLE = Object.freeze({
-  title: 'Café all-rounder',
-  business: 'Bay Window Café (fictional example)',
-  location: 'Redland Bay, Queensland',
-  workplace: 'On site',
-  employment: 'Part-time',
-  hours: '20–25 hours per week',
-  schedule: 'Weekday mornings and one weekend shift; roster agreed in advance',
-  pay: '',
-  payMin: '',
-  payMax: '',
-  payType: 'Hourly rate',
-  currency: 'AUD',
-  showPay: true,
-  payStatus: 'not-checked',
-  award: '',
-  classification: '',
-  duties: 'Welcome customers and take orders\nPrepare and serve food and drinks\nKeep the café and work areas clean',
-  essential: 'Friendly, clear customer communication\nAvailable for the stated shifts\nAble to follow food-safety procedures',
-  desirable: 'Customer service or café experience',
-  benefits: ['Training provided'],
-  otherBenefits: 'Paid training in the café’s service and food-safety procedures',
-  applyMethod: 'email',
-  applyDestination: 'jobs@baywindow.example',
-  applicationItems: ['A short introduction', 'Availability'],
-  closingDate: '',
-  channels: ['seek', 'facebook', 'linkedin', 'short'],
-  linkedinFormat: 'listing',
-  linkedinApply: 'platform',
-  linkedinApplyUrl: '',
-  seekCategory: '',
-  seekSubcategory: '',
-  seekProduct: 'unspecified',
-  style: 'jra',
-  existingAd: '',
-  extraNotes: 'Fictional vacancy for testing only. Confirm pay, award, classification and conditions before publication.',
-});
+
+export {EXAMPLE, EXAMPLES} from './examples.mjs?v=20261023-six-examples';

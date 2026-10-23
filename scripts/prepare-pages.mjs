@@ -46,4 +46,4 @@ for(const [file,html] of pages) {
     } else await readFile(path.join(root,'dist',target));
   }
 }
-console.log(checking ? 'Eight website pages, navigation, sources, sitemap and assets checked.' : 'Eight website pages and publishing files prepared.');
+console.log(checking ? `${pages.size} website pages, navigation, sources, sitemap and assets checked.` : `${pages.size} website pages and publishing files prepared.`);

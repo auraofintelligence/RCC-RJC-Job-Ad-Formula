@@ -11,8 +11,8 @@
   <link rel="icon" type="image/png" sizes="192x192" href="dist/assets/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="dist/assets/apple-touch-icon.png">
   <link rel="canonical" href="https://auraofintelligence.github.io/RCC-RJC-Job-Ad-Formula/">
-  <link rel="stylesheet" href="dist/styles.css?v=20261023-pages">
-  <script type="module" src="dist/app.mjs?v=20261022-viewer"></script>
+  <link rel="stylesheet" href="dist/styles.css?v=20261023-six-examples">
+  <script type="module" src="dist/app.mjs?v=20261023-six-examples"></script>
 </head>
 <body>
   <a class="skip" href="#builder">Skip to builder</a>
@@ -38,7 +38,8 @@
 
     <div class="workspace" id="builder">
       <form id="vacancy-form" novalidate>
-        <div class="form-toolbar"><span id="save-status">Your answers stay in this browser.</span><div><button class="text-button" type="button" id="example">Try an example</button><button class="text-button muted" type="button" id="clear-draft">Clear</button></div></div>
+        <div class="form-toolbar"><span id="save-status">Your answers stay in this browser.</span><button class="text-button muted" type="button" id="clear-draft" data-clear-draft>Clear / reset form</button></div>
+        <div class="example-picker"><label for="example-choice">Try an example</label><select id="example-choice" aria-describedby="example-help"><option value="">Choose a fictional job brief</option></select><p class="hint" id="example-help">Six complete fictional briefs. Sample earnings and benefits are illustrative, not actual vacancies. <a href="examples.html">Pay sources and example notes</a>.</p></div>
 
         <section class="form-card" aria-labelledby="vacancy-heading">
           <div class="section-heading"><span class="step">01</span><div><h2 id="vacancy-heading">Start with your job ad</h2><p>Paste an existing ad, or add the job details below. Leave anything you don’t know blank.</p></div></div>
@@ -141,6 +142,7 @@
             </div>
           </section>
         </section>
+        <div class="form-reset"><button class="secondary-button" type="button" data-clear-draft>Clear / reset form</button></div>
       </form>
 
       <aside class="brief-panel" id="your-brief" aria-label="Your brief">
@@ -162,6 +164,7 @@
           </section>
           <div class="handoff"><strong>What to do with your file</strong><ol><li>Open your usual AI, such as ChatGPT, Claude, Gemini or Copilot.</li><li>Start a new chat and attach the file you downloaded.</li><li>Send: “Use this brief to write the selected fields.”</li></ol><p>If you can’t attach a file, use “Copy brief for AI” and paste it into the chat.</p></div>
           <p id="action-status" class="action-status" role="status" aria-live="polite"></p>
+          <button class="secondary-button" type="button" data-clear-draft>Clear / reset form</button>
         </div>
       </aside>
     </div>

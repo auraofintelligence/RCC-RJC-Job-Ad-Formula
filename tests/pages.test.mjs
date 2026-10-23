@@ -7,7 +7,7 @@ const read = (file) => readFile(new URL(`../${file}`,import.meta.url),'utf8');
 
 test('guide navigation uses separate HTML pages and keeps builder scripts off reading pages',async()=>{
   const pages=await createSitePages(read);
-  assert.equal(pages.size,7);
+  assert.equal(pages.size,8);
   for(const [file,html] of pages){
     assert.match(html,/<html lang="en-AU">/);
     assert.equal((html.match(/<h1>/g)||[]).length,1,file);

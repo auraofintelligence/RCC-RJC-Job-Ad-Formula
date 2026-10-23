@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.mjs",
-    "check": "node --check dist/app.mjs && node --check dist/formula.mjs && node scripts/prepare-pages.mjs --check",
+    "test": "node --test",
+    "check": "node --check dist/app.mjs && node --check dist/formula.mjs && node --check dist/examples.mjs && node scripts/prepare-pages.mjs --check",
     "prepare-pages": "node scripts/prepare-pages.mjs",
     "preview": "node scripts/preview.mjs"
   }

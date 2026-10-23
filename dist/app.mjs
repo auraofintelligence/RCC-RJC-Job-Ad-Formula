@@ -1,4 +1,4 @@
-import {buildMarkdown, getReadiness, slugify, EXAMPLE} from './formula.mjs?v=20261022-existing-ad';
+import {buildMarkdown, getReadiness, slugify, EXAMPLES} from './formula.mjs?v=20261023-six-examples';
 
 const form = document.querySelector('#vacancy-form');
 const byId = (id) => document.getElementById(id);
@@ -111,20 +111,38 @@ byId('copy').addEventListener('click', async () => {
     byId('download').focus();
   }
 });
-byId('example').addEventListener('click', () => {
+const exampleChoice = byId('example-choice');
+for (const example of EXAMPLES) {
+  const option = document.createElement('option');
+  option.value = example.id; option.textContent = example.label; exampleChoice.append(option);
+}
+function hasDraft(data) {
+  return Object.entries(data).some(([key, value]) => Array.isArray(value)
+    ? [...value].sort().join('\n') !== [...(defaults[key] || [])].sort().join('\n')
+    : value !== (defaults[key] ?? ''));
+}
+exampleChoice.addEventListener('change', () => {
+  const example = EXAMPLES.find(({id}) => id === exampleChoice.value);
+  if (!example) return;
   const data = readForm();
-  if ([data.title,data.location,data.duties,data.existingAd].some((value) => value.trim()) && !confirm('Replace this draft with the fictional example?')) return;
-  fillForm(EXAMPLE); render();
-  byId('action-status').textContent = 'Fictional example loaded. Pay and employment checks are intentionally undecided.';
+  if (hasDraft(data) && !confirm('Replace this draft with the selected fictional example?')) {
+    exampleChoice.value = '';
+    return;
+  }
+  fillForm(example.data); render();
+  exampleChoice.value = '';
+  byId('action-status').textContent = `${example.label} loaded. All details are fictional, not a real vacancy. Pay and conditions remain unverified.`;
 });
-byId('clear-draft').addEventListener('click', () => {
+function clearDraft() {
   if (!confirm('Clear this draft from the form and this device? Download it first if you want to keep it.')) return;
   fillForm(defaults);
+  exampleChoice.value = '';
   try { localStorage.removeItem(STORAGE_KEY); } catch { /* No stored draft is available. */ }
   render({save: false});
   byId('save-status').textContent = 'Draft cleared. Your next answers will save on this device.';
   byId('action-status').textContent = 'Draft cleared.';
-});
+}
+document.querySelectorAll('[data-clear-draft]').forEach((button) => button.addEventListener('click', clearDraft));
 
 try {
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
