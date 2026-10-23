@@ -66,7 +66,7 @@ test('six distinct roles exercise different application routes, lists, hours and
   assert.ok(EXAMPLE.existingAd.includes(EXAMPLE.applyDestination));
   assert.match(EXAMPLE.pay, /plus super/);
   assert.equal(EXAMPLE.payStatus, 'not-checked');
-  assert.match(EXAMPLE.business, /fictional/);
+  assert.ok(EXAMPLE.business.trim());
   if (EXAMPLE.applyMethod === 'email') assert.match(EXAMPLE.applyDestination, /@example\.org$/);
   else assert.equal(new URL(EXAMPLE.applyDestination).hostname, 'example.org');
   if (EXAMPLE.linkedinApplyUrl) assert.equal(new URL(EXAMPLE.linkedinApplyUrl).hostname, 'example.org');
@@ -79,7 +79,7 @@ test('six distinct roles exercise different application routes, lists, hours and
   assert.match(EXAMPLES[5].data.location, /Thornlands, Redlands/);
 });
 
-for (const {id, data: EXAMPLE} of EXAMPLES) test(`${id} exports complete relevant sections and fictional status`, () => {
+for (const {id, label, data: EXAMPLE} of EXAMPLES) test(`${id} exports a complete employer brief without example metadata`, () => {
   const readiness = getReadiness(EXAMPLE);
   assert.equal(readiness.ready, true);
   assert.deepEqual(readiness.missing, []);
@@ -97,8 +97,9 @@ for (const {id, data: EXAMPLE} of EXAMPLES) test(`${id} exports complete relevan
     assert.ok(markdown.includes(`### ${heading}`), heading);
   }
   assert.match(markdown, /\*\*Key selling point 3\*\*/);
-  assert.match(markdown, /FICTIONAL EXAMPLE ONLY\. Not a real vacancy\./);
-  assert.match(markdown, /illustrative, not employer commitments/);
   assert.match(markdown, /Not checked; verification required/);
-  assert.match(markdown, /Do not publish this sample/);
+  const metadata = /fictional|illustrati(?:ve|on)|\bsample\b|not a real vacancy|not employer commitments|do not publish this|research context|docs\/example-briefs|Try an example|Six complete fictional/i;
+  assert.doesNotMatch(JSON.stringify(EXAMPLE), metadata, 'Form values must contain employer facts, not UI/research disclaimers.');
+  assert.doesNotMatch(markdown, metadata, 'The exact copied/downloaded payload must stay free of example metadata.');
+  assert.ok(!markdown.includes(label), 'The chooser label must not leak into the payload.');
 });

@@ -1,4 +1,4 @@
-import {buildMarkdown, getReadiness, slugify, EXAMPLES} from './formula.mjs?v=20261023-six-examples';
+import {buildMarkdown, getReadiness, slugify, EXAMPLES} from './formula.mjs?v=20261023-clean-briefs';
 
 const form = document.querySelector('#vacancy-form');
 const byId = (id) => document.getElementById(id);

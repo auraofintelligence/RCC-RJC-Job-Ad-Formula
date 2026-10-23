@@ -197,4 +197,4 @@ export function buildMarkdown(input = {}) {
 }
 
 
-export {EXAMPLE, EXAMPLES} from './examples.mjs?v=20261023-six-examples';
+export {EXAMPLE, EXAMPLES} from './examples.mjs?v=20261023-clean-briefs';

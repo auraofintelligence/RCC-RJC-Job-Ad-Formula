@@ -270,14 +270,13 @@ test('portable filename slugging handles accents and empty input', () => {
   assert.equal(slugify(undefined), 'job-ad');
 });
 
-test('sample terms are illustrative and do not assert a verified wage', () => {
-  assert.match(EXAMPLE.business, /fictional/i);
+test('example uses reserved contacts and retains outstanding employer pay checks', () => {
+  assert.equal(EXAMPLE.business, 'Paperbark Corner Store');
   assert.match(EXAMPLE.applyDestination, /@example\.org$/);
   assert.equal(EXAMPLE.payStatus, 'not-checked');
-  assert.match(EXAMPLE.pay, /Illustrative/);
-  assert.match(EXAMPLE.award, /unverified/);
-  assert.match(EXAMPLE.classification, /unverified/);
-  assert.match(EXAMPLE.extraNotes, /not employer commitments/);
+  assert.match(EXAMPLE.pay, /AUD \$36-\$38 per hour/);
+  assert.match(EXAMPLE.extraNotes, /Check current award\/agreement coverage/);
+  assert.ok(getReadiness(EXAMPLE).checks.some((check) => check.includes('Employer: verify pay')));
 });
 
 test('official references include corrected Fair Work URL and no obsolete path', () => {
